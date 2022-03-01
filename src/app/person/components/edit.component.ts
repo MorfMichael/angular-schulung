@@ -12,16 +12,12 @@ export class EditComponent implements OnInit {
   constructor(private route: ActivatedRoute, private personService: PersonService) {
   }
 
-  id: number = 0;
-  name: string = '';
-  age: number = 0;
+  person?: Person;
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       this.personService.getPerson(Number(params.get('id'))).subscribe(person => {
-        this.id = person.id;
-        this.name = person.name;
-        this.age = person.age;
+        this.person = person;
       });
     });
   }
