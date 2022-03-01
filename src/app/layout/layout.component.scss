@@ -1,0 +1,42 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 1fr 4fr 1fr;
+  grid-template-areas:
+    "header header header"
+    "navigation content ads"
+    "footer footer footer";
+}
+
+@media only screen and (max-width: 600px) {
+  .layout {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas:
+      "header"
+      "navigation"
+      "content"
+      "footer"
+      "ads";
+  }
+}
+
+.header {
+  grid-area: header;
+}
+
+.navigation {
+  grid-area: navigation;
+}
+
+.content {
+  grid-area: content;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.ads {
+  grid-area: ads;
+}

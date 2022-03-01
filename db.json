@@ -1,0 +1,24 @@
+{
+    "persons": [
+        {
+            "id": 1,
+            "name": "Michael Morf"
+        },
+        {
+            "id": 2,
+            "name": "Thomas Resch"
+        },
+        {
+            "id": 3,
+            "name": "Andreas Lengauer"
+        },
+        {
+            "id": 4,
+            "name": "Benjamin Sirninger"
+        },
+        {
+            "id": 5,
+            "name": "Günther Hofegger"
+        }
+    ]
+}
