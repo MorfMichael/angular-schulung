@@ -3,20 +3,19 @@ import { Person } from '../model/person';
 import { PersonService } from '../model/person.service';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+    selector: 'app-list',
+    templateUrl: './list.component.html',
+    styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
 
-  constructor(private personService: PersonService) { 
-      this.persons = []
-  }
+    constructor(private personService: PersonService) {
+    }
 
-  public persons: Person[];
+    persons: Person[] = [];
 
-  ngOnInit(): void {
-      this.personService.getPersons().subscribe(data => this.persons = data);
-  }
+    ngOnInit(): void {
+        this.personService.getPersons().subscribe(data => this.persons = data);
+    }
 
 }

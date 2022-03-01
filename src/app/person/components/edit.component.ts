@@ -10,18 +10,18 @@ import { PersonService } from '../model/person.service';
 })
 export class EditComponent implements OnInit {
   constructor(private route: ActivatedRoute, private personService: PersonService) {
-    this.id = 0;
-    this.name = '';
   }
 
-  id: number;
-  name: string;
+  id: number = 0;
+  name: string = '';
+  age: number = 0;
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       this.personService.getPerson(Number(params.get('id'))).subscribe(person => {
         this.id = person.id;
         this.name = person.name;
+        this.age = person.age;
       });
     });
   }
