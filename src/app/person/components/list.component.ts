@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Person } from '../model/person';
 import { PersonService } from '../model/person.service';
 
@@ -12,10 +13,10 @@ export class ListComponent implements OnInit {
     constructor(private personService: PersonService) {
     }
 
-    persons: Person[] = [];
+    persons$: Observable<Person[]> = new Observable<Person[]>();
 
     ngOnInit(): void {
-        this.personService.getPersons().subscribe(data => this.persons = data);
+        this.persons$ = this.personService.getPersons();
     }
 
 }

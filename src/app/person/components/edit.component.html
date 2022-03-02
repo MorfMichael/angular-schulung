@@ -1,5 +1,7 @@
-<p>{{ person?.id }}</p>
-<p>{{ person?.name }}</p>
-<p>{{ person?.age }}</p>
+<div *ngIf="person$ | async as person">
+    <p>{{ person?.id }}</p>
+    <p>{{ person?.name }}</p>
+    <p>{{ person?.age }}</p>
+</div>
 
 <a [routerLink]="'..'">back</a>

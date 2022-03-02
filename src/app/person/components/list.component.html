@@ -1,5 +1,5 @@
 <p>list works!</p>
 
 <div class="routes">
-    <a *ngFor="let person of persons" [routerLink]="[person.id]">{{ person.name }}</a>
+    <a *ngFor="let person of persons$ | async" [routerLink]="[person.id]">{{ person.name }}</a>
 </div>
