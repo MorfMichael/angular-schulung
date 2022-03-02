@@ -37,7 +37,7 @@ export class EditComponent implements OnInit, OnDestroy {
   */
 
   person: Person = { id: 0, name: "", age: 0 };
-  person$: Observable<Person> = new Observable<Person>();
+  person$: Observable<Person | undefined> = new Observable<Person | undefined>();
   personForm: FormGroup = this.fb.group({
     id: [0],
     name: ['', Validators.required],
@@ -51,7 +51,9 @@ export class EditComponent implements OnInit, OnDestroy {
     )
 
     this.subscription = this.person$.subscribe(person => {
-      this.personForm?.setValue(person);
+      if (person) {
+        this.personForm?.setValue(person);
+      }
     });
   }
 
