@@ -1,5 +1,10 @@
 <p>list works!</p>
 
-<div class="routes">
-    <a *ngFor="let person of persons$ | async" [routerLink]="[person.id]">{{ person.name }}</a>
+<div *ngIf="persons$ | async as persons; else loading" class="routes">
+    <a *ngFor="let person of persons" [routerLink]="[person.id]">{{ person.name }}</a>
 </div>
+
+<ng-template #loading>
+    <img src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator.gif"
+        height="40" width="40" />
+</ng-template>

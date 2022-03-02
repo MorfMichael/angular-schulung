@@ -1,7 +1,12 @@
-<div *ngIf="person$ | async as person">
+<div *ngIf="person$ | async as person; else loading">
     <p>{{ person?.id }}</p>
     <p>{{ person?.name }}</p>
     <p>{{ person?.age }}</p>
+
+    <a [routerLink]="'..'">back</a>
 </div>
 
-<a [routerLink]="'..'">back</a>
+<ng-template #loading>
+    <img src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator.gif"
+        height="40" width="40" />
+</ng-template>
