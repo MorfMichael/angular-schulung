@@ -26,7 +26,12 @@ export class PersonService {
   }
 
   getPerson(id: number): Observable<Person | undefined> {
-    return this.persons$.pipe(mergeAll(), find(x => x.id == id));
+    if (id == -1) {
+      return of({ id: Math.max(...this.persons.map(x => x.id)) + 1, name: '', age: 5 })
+    } else {
+      let el = this.persons.find(x => x.id == id);
+      return of(el);
+    }
   }
 
   savePerson(person: Person): Observable<Person | undefined> {

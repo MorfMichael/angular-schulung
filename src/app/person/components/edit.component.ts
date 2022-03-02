@@ -61,7 +61,7 @@ export class EditComponent implements OnInit, OnDestroy {
     if (this.personForm.valid) {
       console.log('personForm', this.personForm);
       this.personService.savePerson(this.personForm.value).subscribe();
-      this.router.navigate([''], { relativeTo: this.route });
+      this.router.navigate(['..'], { relativeTo: this.route });
     } else {
       console.error('invalid to save!!!');
     }
