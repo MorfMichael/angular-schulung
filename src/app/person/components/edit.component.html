@@ -1,12 +1,31 @@
 <div *ngIf="person$ | async as person; else loading">
-    <p>{{ person?.id }}</p>
-    <p>{{ person?.name }}</p>
-    <p>{{ person?.age }}</p>
+  <p>{{ person?.id }}</p>
+  <p>{{ person?.name }}</p>
+  <p>{{ person?.age }}</p>
 
-    <a [routerLink]="'..'">back</a>
+  <form [formGroup]="personForm" (ngSubmit)="savePerson()">
+    <div>
+      ID:
+      <input formControlName="id" />
+    </div>
+    <div>
+      NAME:
+      <input formControlName="name" />
+    </div>
+    <div>
+      AGE:
+      <input type="number" formControlName="age" />
+    </div>
+    <div>
+      <button type="submit" [disabled]="!personForm.valid">Submit</button>
+    </div>
+  </form>
+
+  <a [routerLink]="'..'">back</a>
 </div>
 
 <ng-template #loading>
-    <img src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator.gif"
-        height="40" width="40" />
+  <img
+    src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator.gif"
+    height="40" width="40" />
 </ng-template>

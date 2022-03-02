@@ -13,6 +13,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './components/home.component';
 import { AboutComponent } from './components/about.component';
 import { NotfoundComponent } from './components/notfound.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [

@@ -5,17 +5,20 @@ import { PersonRoutingModule } from './person-routing.module';
 import { PersonComponent } from './components/person.component';
 import { ListComponent } from './components/list.component';
 import { EditComponent } from './components/edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     PersonComponent,
     ListComponent,
-    EditComponent
+    EditComponent,
   ],
   imports: [
     CommonModule,
-    PersonRoutingModule
+    PersonRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PersonModule { }
